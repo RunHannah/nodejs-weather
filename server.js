@@ -24,6 +24,11 @@ router.get('/', (res, req) => {
 // Setup static directory to serve
 app.use(express.static(__dirname + '/views'));
 
+// error routing
+app.use('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/views/error.html'));
+});
+
 app.listen(3000, () => {
   console.log('Server is up on port 3000.');
 });
