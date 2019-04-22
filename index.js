@@ -7,5 +7,8 @@ app.listen(3000, () => {
 });
 
 app.get('', (req, res) => {
-  res.send('This is the main page.');
+  res.send({
+    title: 'Check the weather',
+    dateToday: new Date()
+  });
 });
