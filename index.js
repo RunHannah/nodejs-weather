@@ -12,3 +12,10 @@ app.get('', (req, res) => {
     dateToday: new Date()
   });
 });
+
+app.get('*', (req, res) => {
+  res.send({
+    title: '404',
+    errorMessage: 'Page not found.'
+  });
+});
