@@ -22,6 +22,24 @@ router.get('/', (res, req) => {
   res.sendFile(path.join(__dirname, '/index.html'));
 });
 
+app.get('/weather', (req, res) => {
+  if (!req.query.address) {
+    return res.send({
+      error: 'You must provide an address!'
+    });
+  }
+
+  geocode(
+    req.query.address,
+    (error, { latitude, longitude, location } = {}) => {
+      if (error) {
+        return res.send({ error });
+      }
+      console.log('latitude server.js', latitude);
+    }
+  );
+});
+
 // Setup static directory to serve
 app.use(express.static(__dirname + '/views'));
 
