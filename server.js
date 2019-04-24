@@ -36,18 +36,17 @@ app.get('/weather', (req, res) => {
       if (error) {
         return res.send({ error });
       }
-      console.log('latitude server.js', latitude);
-      console.log('longitude server.js', longitude);
-      console.log('location server.js', location);
 
       forecast(latitude, longitude, (error, forecastData) => {
         if (error) {
           return res.send({ error });
         }
 
-        console.log('forecastData', forecastData);
-        console.log('location');
-        console.log('req.query.address', req.query.address);
+        // res.send({
+        //   forecast: forecastData,
+        //   location,
+        //   address: req.query.address
+        // });
       });
     }
   );
