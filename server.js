@@ -19,8 +19,11 @@ const forecast = require('./utils/forecast');
 //   });
 // });
 
-router.get('/', (res, req) => {
-  res.sendFile(path.join(__dirname, '/index.html'));
+// Setup static directory to serve
+app.use('/public', express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/templates/views/index.html'));
 });
 
 app.get('/weather', (req, res) => {
@@ -36,28 +39,26 @@ app.get('/weather', (req, res) => {
       if (error) {
         return res.send({ error });
       }
+      console.log('latitude server.js', latitude);
+      console.log('longitude server.js', longitude);
+      console.log('location server.js', location);
 
       forecast(latitude, longitude, (error, forecastData) => {
         if (error) {
           return res.send({ error });
         }
 
-        // res.send({
-        //   forecast: forecastData,
-        //   location,
-        //   address: req.query.address
-        // });
+        console.log('forecastData', forecastData);
+        console.log('location');
+        console.log('req.query.address', req.query.address);
       });
     }
   );
 });
 
-// Setup static directory to serve
-app.use(express.static(__dirname + '/views'));
-
 // error routing
 app.use('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/views/error.html'));
+  res.sendFile(path.join(__dirname, 'templates/views/error.html'));
 });
 
 app.listen(3000, () => {
