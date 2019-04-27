@@ -1,23 +1,8 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const router = express.Router();
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
-
-// app.get('', (req, res) => {
-//   res.send({
-//     title: 'Check the weather',
-//     dateToday: new Date()
-//   });
-// });
-
-// app.get('*', (req, res) => {
-//   res.send({
-//     title: '404',
-//     errorMessage: 'Page not found.'
-//   });
-// });
 
 // Setup static directory to serve
 app.use('/public', express.static(path.join(__dirname, 'public')));
@@ -39,18 +24,17 @@ app.get('/weather', (req, res) => {
       if (error) {
         return res.send({ error });
       }
-      console.log('latitude server.js', latitude);
-      console.log('longitude server.js', longitude);
-      console.log('location server.js', location);
 
       forecast(latitude, longitude, (error, forecastData) => {
         if (error) {
           return res.send({ error });
         }
 
-        console.log('forecastData', forecastData);
-        console.log('location');
-        console.log('req.query.address', req.query.address);
+        res.send({
+          forecast: forecastData,
+          location,
+          address: req.query.address
+        });
       });
     }
   );
