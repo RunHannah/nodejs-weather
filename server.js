@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -33,7 +34,10 @@ app.get('/weather', (req, res) => {
         res.send({
           forecast: forecastData,
           location,
-          address: req.query.address
+          address: req.query.address,
+          latitude,
+          longitude,
+          mapboxToken: process.env.MAPBOX_API_TOKEN
         });
       });
     }
