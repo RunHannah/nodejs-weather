@@ -25,7 +25,7 @@ weatherForm.addEventListener('submit', e => {
           container: 'map', // container id
           style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
           center: [data.longitude, data.latitude], // starting position [lng, lat]
-          zoom: 9 // starting zoom
+          zoom: 10 // starting zoom
         });
       }
     });
