@@ -31,6 +31,8 @@ app.get('/weather', (req, res) => {
           return res.send({ error });
         }
 
+        console.log('forecastData', forecastData);
+
         res.send({
           forecast: forecastData,
           currentTemperature: forecastData.currentTemperature,

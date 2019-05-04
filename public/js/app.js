@@ -1,27 +1,25 @@
 const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
-const currentTemp = document.querySelector('#current-temp');
-const currentSummary = document.querySelector('#current-summary');
+const currently = document.querySelector('#currently');
+const dailySummary = document.querySelector('#dailySummary');
 
 weatherForm.addEventListener('submit', e => {
   e.preventDefault();
 
   const location = search.value;
   let map = '';
-  currentTemp.textContent = 'Loading...';
-  currentSummary.textContent = '';
+  currently.textContent = 'Loading...';
+  dailySummary.textContent = '';
 
   fetch('http://localhost:3000/weather?address=' + location).then(response => {
     response.json().then(data => {
       if (data.error) {
-        currentTemp.textContent = data.error;
+        currently.textContent = data.error;
       } else {
-        console.log('data', data);
+        currently.textContent =
+          data.currentTemperature + ' ' + data.currentSummary;
+        dailySummary.textContent = data.dailySummary;
 
-        console.log('forecastdata', data.forecast);
-
-        currentTemp.textContent = data.currentTemperature;
-        currentSummary.textContent = data.currentSummary;
         mapboxgl.accessToken = data.mapboxToken;
         map = new mapboxgl.Map({
           container: 'map', // container id

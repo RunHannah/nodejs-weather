@@ -4,8 +4,9 @@
     <title>Weather</title>
     <link
       rel="icon"
-      href="https://cdn.pixabay.com/photo/2013/04/01/09/22/warm-98532_1280.png"
+      href="http://clipart-library.com/images/gce5y9M6i.png"
     />
+
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
@@ -43,12 +44,14 @@
 
   <body>
     <div class="container-fluid">
-      <div class="main-content">
-        <p>Check your weather here</p>
+      <div class="main-content text-center">
+        <p id="header">Check your weather here</p>
+      </div>
 
+      <nav class="navbar navbar-light bg-light"></nav>    
         <form>
-          <div class="form-group row">
-            <div class="col-11">
+          <div class="form-group row justify-content-center">
+            <div class="col-10">
               <input
                 class="form-control"
                 type="search"
@@ -59,13 +62,16 @@
             <button><i class="fas fa-search"></i></button>
           </div>
         </form>
-        <span>
-          <p id="current-temp"></p>
-          <p id="current-summary"></p>
-        </span>
-      </div>
+      </nav>
+
+      <div class="text-center">    
+          <p id="currently"></p>
+          <p id="dailySummary"></p>     
+      </div>     
     </div>
+
     <div id="map"></div>
+    
     <script src="/public/js/app.js"></script>
   </body>
 </html>
