@@ -17,7 +17,7 @@ weatherForm.addEventListener('submit', e => {
         currently.textContent = data.error;
       } else {
         currently.textContent =
-          data.currentTemperature + ' ' + data.currentSummary;
+          Math.round(data.currentTemperature) + ' ' + data.currentSummary;
         dailySummary.textContent = data.dailySummary;
 
         mapboxgl.accessToken = data.mapboxToken;
