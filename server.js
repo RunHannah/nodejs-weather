@@ -31,14 +31,15 @@ app.get('/weather', (req, res) => {
           return res.send({ error });
         }
 
-        console.log('forecastData', forecastData);
-
         res.send({
           forecast: forecastData,
           currentTemperature: forecastData.currentTemperature,
           currentSummary: forecastData.currentSummary,
           dailySummary: forecastData.dailySummary,
           currentPrecip: forecastData.currentPrecip,
+          feelsLike: forecastData.feelsLike,
+          temperatureLow: forecastData.temperatureLow,
+          temperatureHigh: forecastData.temperatureHigh,
           location,
           address: req.query.address,
           latitude,

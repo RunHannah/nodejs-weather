@@ -11,9 +11,7 @@ const forecast = (latitude, longitude, callback) => {
     longitude;
 
   request({ url, json: true }, (error, { body }) => {
-    console.log('forecast body', body);
-
-    // console.log('summary', body.daily.data);
+    console.log('forecast body.daily', body.daily);
 
     if (error) {
       callback('Unable to connect to weather service!', undefined);
@@ -24,7 +22,10 @@ const forecast = (latitude, longitude, callback) => {
         currentTemperature: body.currently.temperature,
         currentSummary: body.currently.summary,
         dailySummary: body.daily.data[0].summary,
-        currentPrecip: body.currently.precipProbability
+        currentPrecip: body.currently.precipProbability,
+        feelsLike: body.hourly.data[0].apparentTemperature,
+        temperatureLow: body.daily.data[0].temperatureLow,
+        temperatureHigh: body.daily.data[0].temperatureHigh
       });
     }
   });
