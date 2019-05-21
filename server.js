@@ -35,7 +35,7 @@ app.get('/weather', (req, res) => {
           forecast: forecastData,
           currentTemperature: forecastData.currentTemperature,
           currentSummary: forecastData.currentSummary,
-          dailySummary: forecastData.dailySummary,
+          minutelySummary: forecastData.minutelySummary,
           currentPrecip: forecastData.currentPrecip,
           feelsLike: forecastData.feelsLike,
           temperatureLow: forecastData.temperatureLow,
