@@ -1,5 +1,6 @@
 const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
+const currentlyIcon = document.querySelector('#currently-icon');
 const currently = document.querySelector('#currently');
 const minutelySummary = document.querySelector('#minutelySummary');
 const feelsLike = document.querySelector('#feels-like');
@@ -10,6 +11,7 @@ weatherForm.addEventListener('submit', e => {
   const location = search.value;
   let map = '';
   currently.textContent = 'Loading...';
+  currentlyIcon.innerHTML = '';
   minutelySummary.textContent = '';
   feelsLike.textContent = '';
 
@@ -18,6 +20,7 @@ weatherForm.addEventListener('submit', e => {
       if (data.error) {
         currently.textContent = data.error;
       } else {
+        currentlyIcon.innerHTML = data.currentlyIcon;
         currently.textContent =
           Math.round(data.currentTemperature) + '°' + ' ' + data.currentSummary;
         minutelySummary.textContent = data.minutelySummary;

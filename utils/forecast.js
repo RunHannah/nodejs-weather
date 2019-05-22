@@ -1,5 +1,6 @@
 require('dotenv').config();
 const request = require('request');
+const weatherIcon = require('./weatherIcon');
 
 const forecast = (latitude, longitude, callback) => {
   const url =
@@ -11,7 +12,7 @@ const forecast = (latitude, longitude, callback) => {
     longitude;
 
   request({ url, json: true }, (error, { body }) => {
-    console.log('forecast body.daily', body.daily);
+    let weatherHtml = weatherIcon(body.currently.icon);
 
     if (error) {
       callback('Unable to connect to weather service!', undefined);
@@ -25,7 +26,8 @@ const forecast = (latitude, longitude, callback) => {
         currentPrecip: body.currently.precipProbability,
         feelsLike: body.hourly.data[0].apparentTemperature,
         temperatureLow: body.daily.data[0].temperatureLow,
-        temperatureHigh: body.daily.data[0].temperatureHigh
+        temperatureHigh: body.daily.data[0].temperatureHigh,
+        currentlyIcon: weatherHtml
       });
     }
   });

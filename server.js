@@ -40,6 +40,7 @@ app.get('/weather', (req, res) => {
           feelsLike: forecastData.feelsLike,
           temperatureLow: forecastData.temperatureLow,
           temperatureHigh: forecastData.temperatureHigh,
+          currentlyIcon: forecastData.currentlyIcon,
           location,
           address: req.query.address,
           latitude,
