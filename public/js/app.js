@@ -2,7 +2,7 @@ const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
 const currentlyIcon = document.querySelector('#currently-icon');
 const currently = document.querySelector('#currently');
-const minutelySummary = document.querySelector('#minutelySummary');
+const hourlySummary = document.querySelector('#hourly-summary');
 const feelsLike = document.querySelector('#feels-like');
 
 weatherForm.addEventListener('submit', e => {
@@ -12,7 +12,7 @@ weatherForm.addEventListener('submit', e => {
   let map = '';
   currently.textContent = 'Loading...';
   currentlyIcon.innerHTML = '';
-  minutelySummary.textContent = '';
+  hourlySummary.textContent = '';
   feelsLike.textContent = '';
 
   fetch('http://localhost:3000/weather?address=' + location).then(response => {
@@ -23,7 +23,7 @@ weatherForm.addEventListener('submit', e => {
         currentlyIcon.innerHTML = data.currentlyIcon;
         currently.textContent =
           Math.round(data.currentTemperature) + '°' + ' ' + data.currentSummary;
-        minutelySummary.textContent = data.minutelySummary;
+        hourlySummary.textContent = data.hourlySummary;
         feelsLike.textContent =
           'Feels like: ' +
           Math.round(data.feelsLike) +

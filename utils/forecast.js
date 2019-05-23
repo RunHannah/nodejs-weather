@@ -22,9 +22,9 @@ const forecast = (latitude, longitude, callback) => {
       callback(undefined, {
         currentTemperature: body.currently.temperature,
         currentSummary: body.currently.summary,
-        minutelySummary: body.minutely.summary,
+        hourlySummary: body.hourly.summary,
         currentPrecip: body.currently.precipProbability,
-        feelsLike: body.hourly.data[0].apparentTemperature,
+        feelsLike: body.currently.apparentTemperature,
         temperatureLow: body.daily.data[0].temperatureLow,
         temperatureHigh: body.daily.data[0].temperatureHigh,
         currentlyIcon: weatherHtml
