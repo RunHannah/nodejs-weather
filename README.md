@@ -1,6 +1,6 @@
 ### Weather Search
 
-Check the weather and also view map for a location.
+Check the weather and map based on search input.
 
 ```
 JavaScript, Node.js, and Express server-side render
@@ -15,5 +15,10 @@ Dynamically renders weather icons
 
 ```
 
+```
+
 ### Licensed under MIT license
+
+```
+
 ```
