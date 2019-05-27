@@ -27,11 +27,11 @@ weatherForm.addEventListener('submit', e => {
         feelsLike.textContent =
           'Feels like: ' +
           Math.round(data.feelsLike) +
-          '°' +
+          '° ' +
           ' ' +
           'Low: ' +
           Math.round(data.temperatureLow) +
-          '°' +
+          '° ' +
           ' ' +
           'High: ' +
           Math.round(data.temperatureHigh) +

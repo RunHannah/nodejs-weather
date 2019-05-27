@@ -6,7 +6,7 @@ let weatherIcon = currentlyIcon => {
     return `<i class="fas fa-moon" />`;
   }
   if (currentlyIcon === 'rain') {
-    return `<i class="fas fa-cloud-showers-heavy" />`;
+    return `<i class="fas fa-umbrella"></i>`;
   }
   if (currentlyIcon === 'snow') {
     return `<i class="fas fa-snowflake" />`;
