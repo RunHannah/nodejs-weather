@@ -9,8 +9,6 @@ const geocode = (address, callback) => {
     process.env.MAPBOX_API_TOKEN;
 
   request({ url, json: true }, (error, { body }) => {
-    console.log('geocode body', body);
-
     if (error) {
       callback('Unable to connect to location services!', undefined);
     } else if (body.features.length === 0) {

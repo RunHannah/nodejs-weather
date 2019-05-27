@@ -4,6 +4,7 @@ const currentlyIcon = document.querySelector('#currently-icon');
 const currently = document.querySelector('#currently');
 const hourlySummary = document.querySelector('#hourly-summary');
 const feelsLike = document.querySelector('#feels-like');
+const headerLocation = document.querySelector('#header-location');
 
 weatherForm.addEventListener('submit', e => {
   e.preventDefault();
@@ -20,6 +21,7 @@ weatherForm.addEventListener('submit', e => {
       if (data.error) {
         currently.textContent = data.error;
       } else {
+        headerLocation.textContent = location.toUpperCase();
         currentlyIcon.innerHTML = data.currentlyIcon;
         currently.textContent =
           Math.round(data.currentTemperature) + '°' + ' ' + data.currentSummary;
