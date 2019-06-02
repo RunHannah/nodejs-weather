@@ -57,6 +57,6 @@ app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'templates/views/error.html'));
 });
 
-app.listen(3000, () => {
-  console.log('Server is up on port 3000.');
-});
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => console.log(`Server started on port ${port}`));
