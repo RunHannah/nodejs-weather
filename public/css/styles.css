@@ -78,14 +78,14 @@ section,
 
 /****** Mobile ******/
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 640px) {
   header {
-    height: 25px;
+    height: 32px;
     padding: 4px;
   }
 
   header > .text-center {
-    font-size: 10px;
+    font-size: 14px;
   }
 
   form {
@@ -108,7 +108,7 @@ section,
   }
 
   .text-center {
-    max-width: 400px;
+    max-width: 300px;
   }
 
   section,
@@ -136,5 +136,9 @@ section,
 
   #feels-like {
     font-size: 12px;
+  }
+
+  #map {
+    height: 600px;
   }
 }
