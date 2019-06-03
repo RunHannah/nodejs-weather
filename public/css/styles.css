@@ -28,6 +28,7 @@ button {
   height: 37px;
   width: 44px;
 }
+
 button:hover {
   background-color: #939292;
 }
@@ -63,4 +64,77 @@ section,
 
 #currently-icon {
   font-size: 48px;
+}
+
+#map {
+  position: absolute;
+  /* top: 0px; */
+  /* bottom: 0; */
+  width: 100%;
+  height: 60%;
+  margin: 0px;
+  padding: 0px;
+}
+
+/****** Mobile ******/
+
+@media only screen and (max-width: 480px) {
+  header {
+    height: 25px;
+    padding: 4px;
+  }
+
+  header > .text-center {
+    font-size: 10px;
+  }
+
+  form {
+    height: 45px;
+  }
+
+  .form-control {
+    height: 26px;
+  }
+
+  button {
+    height: 26px;
+    width: 31px;
+  }
+
+  .form-control {
+    border-radius: 18px;
+    border: none;
+    margin-top: 10px;
+  }
+
+  .text-center {
+    max-width: 400px;
+  }
+
+  section,
+  .currently {
+    padding-top: 10px;
+  }
+
+  #currently {
+    font-size: 16px;
+  }
+
+  #currently-icon {
+    width: 50%;
+    height: 50%;
+    margin-right: 6px;
+  }
+
+  #hourly-summary {
+    font-size: 13px;
+  }
+
+  #currently-icon {
+    font-size: 24px;
+  }
+
+  #feels-like {
+    font-size: 12px;
+  }
 }
