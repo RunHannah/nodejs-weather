@@ -68,12 +68,10 @@ section,
 
 #map {
   position: absolute;
-  /* top: 0px; */
-  /* bottom: 0; */
+  padding-top: 10px;
   width: 100%;
-  height: 60%;
+  height: 80%;
   margin: 0px;
-  padding: 0px;
 }
 
 /****** Mobile ******/
@@ -136,9 +134,5 @@ section,
 
   #feels-like {
     font-size: 12px;
-  }
-
-  #map {
-    height: 600px;
   }
 }
